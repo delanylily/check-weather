@@ -5,15 +5,13 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
     const city = document.getElementById('city').value;
     weather.changeLocation(city);
     getWeather();
+    $('#locModal').modal('hide');
 })
-// weather.changeLocation('Miami');
 
 function getWeather() {
     weather.getWeather()
         .then(results => {
-            ui.paint(results)
-            console.log(results)
+            ui.paint(results);
         })
         .catch(err => console.log(err));
-    console.log()
 }
